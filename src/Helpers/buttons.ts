@@ -1,13 +1,21 @@
-import { ActionRowBuilder, ButtonStyle, ButtonBuilder } from 'discord.js';
+import {
+  ActionRowBuilder,
+  ButtonStyle,
+  ButtonBuilder,
+  ComponentType,
+} from 'discord.js';
 
-const createAnswerButtons = (answers) => {
+const createAnswerButtons = (answers: Array<string>): ActionRowBuilder<any> => {
   const answerButtons = answers.map((answer, index) =>
     new ButtonBuilder()
       .setCustomId(index.toString())
       .setLabel(answer)
       .setStyle(ButtonStyle.Primary)
   );
-  return new ActionRowBuilder({ components: [...answerButtons] });
+  return new ActionRowBuilder({
+    components: [...answerButtons],
+    type: ComponentType.Button,
+  });
 };
 
 export const createTrueFalseAnswerButtons = () => {

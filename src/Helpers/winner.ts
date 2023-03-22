@@ -1,4 +1,4 @@
-export const getWinner = (leaderBoard) =>
+export const getWinner = (leaderBoard: Map<string, number>) =>
   Object.entries(Object.fromEntries(leaderBoard))
     .map(([key, value]) => ({ id: key, score: value }))
     .sort((a, b) => (a.score < b.score ? 1 : -1))
